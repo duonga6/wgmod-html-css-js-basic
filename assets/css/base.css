@@ -1,0 +1,76 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --header__top-color: rgb(5,5,5);
+    --premium-color: rgb(255,190,60);
+    --services-hover: #d19834;
+
+    --header__top-height: 36px;
+    --header__bot-height: 66px;
+    --header-height: calc(var(--header__bot-height) + var(--header__top-height));
+}
+
+@import url(https://db.onlinewebfonts.com/c/784c9e56b298ec50f3aee736f81c0139?family=HeliosCond);
+
+@font-face {font-family: "HeliosCond";
+    src: url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.eot");
+    src: url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.woff") format("woff"), url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/784c9e56b298ec50f3aee736f81c0139.svg#HeliosCond") format("svg"); }
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+@keyframes menu-open {
+    from {
+        transform: translateY(calc(-410px - var(--header-height)));
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes menu-close {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(calc(-410px - var(--header-height)));
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+
+.grid {
+    width: 1408px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+}
