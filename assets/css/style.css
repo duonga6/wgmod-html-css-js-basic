@@ -84,7 +84,7 @@
     opacity: 1;
 }
 
-.menu--active .top-nav-arrow-down { 
+.menu--active .top-nav-arrow-down {  
     transform: rotate(180deg);
 }
 
