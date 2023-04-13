@@ -123,7 +123,7 @@ const setColor = () => {
                     })
                     document.querySelector(`.${className} .games-name`).style.color = item.color;
                     Array.from(document.querySelectorAll('.game-desc-name')).forEach((desc) => {
-                        desc.style.color = item.color
+                        desc.style.color = item.color;
                     })
                 }
             })
@@ -138,7 +138,7 @@ for (let i = 0; i < gamesList.length; i++) {
         gamesListData.forEach((current) => {
             if (current.class == gamesList[i].classList[1]) {
                 Array.from(document.querySelectorAll(`.${gamesList[i].classList[1]} .game-icon-fill`)).forEach((item) => {
-                    item.style.fill = current.color
+                    item.style.fill = current.color;
                 })
                 document.querySelector(`.${gamesList[i].classList[1]} .games-name`).style.color = current.color;
             }
@@ -219,12 +219,16 @@ var menuServices = document.querySelector('.services-menu');
 
 menuGameCheck.addEventListener('click', function() {
     menuServices.classList.remove('is--open');
+    menuServiceCheck.classList.remove('menu--active');
     menuGames.classList.toggle('is--open');
+    menuGameCheck.classList.toggle('menu--active');
 })
 
 menuServiceCheck.addEventListener('click', function() {
     menuGames.classList.remove('is--open');
+    menuGameCheck.classList.remove('menu--active');
     menuServices.classList.toggle('is--open');
+    menuServiceCheck.classList.toggle('menu--active');
 })
 
 
