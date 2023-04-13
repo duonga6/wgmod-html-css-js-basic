@@ -314,3 +314,27 @@ for (let i = 0; i < servicesList.length; i++) {
         }
     })
 }
+
+var navBottom = document.querySelectorAll('.bot-nav-item');
+for (let i = 1; i < navBottom.length; i++) {
+    navBottom[i].addEventListener('click', function() {
+        Array.from(navBottom).forEach((current) => {
+            current.classList.remove('bot-nav-item--active');
+        })
+        if (!navBottom[i].classList.contains('bot-nav-item--active'));
+            navBottom[i].classList.add('bot-nav-item--active')
+    })
+}
+
+var openLangList = document.querySelector('.mod-desc-lang');
+openLangList.addEventListener('click', function() {
+    openLangList.classList.toggle('mod-desc-lang--active');
+})
+
+var listCaterory = document.querySelectorAll('.mod-categories-item');
+
+Array.from(listCaterory).forEach((current) => {
+    current.addEventListener('click', function() {
+        current.classList.toggle('mod-categories-item--active');
+    })
+})

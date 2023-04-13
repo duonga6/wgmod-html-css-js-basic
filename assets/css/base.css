@@ -27,6 +27,14 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    background-color: #1c1c1e;
+    background-image: url(../img/background/sparks.png);
+    background-size: contain;
+    background-repeat: repeat-y;
+    background-position: top center;
+}
+
 ::-webkit-scrollbar {
     width: 16px;
 }
@@ -56,21 +64,4 @@ html {
         transform: translateY(calc(-410px - var(--header-height)));
         opacity: 0;
     }
-}
-
-/* Responsive */
-
-.grid {
-    width: 1408px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
-.grid-row {
-    display: flex;
-    flex-wrap: wrap;
 }

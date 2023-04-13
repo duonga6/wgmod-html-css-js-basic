@@ -68,15 +68,16 @@
 /* Game menu list */
 
 .games-menu {
+    z-index: 1;
     position: absolute;
     left: 0;
     top: var(--header__top-height);
     height: 430px;
-    width: 100vw;
+    width: 100%;
     background: url(../img/game-background/wot.jpg) no-repeat center;
     transform: translateY(calc(-410px - var(--header-height)));
     opacity: 0;
-    transition: background-image .2s ease-in-out, transform .3s ease-in-out, opacity 0.3s ease-in;
+    transition: background-image .2s ease-in-out, transform .3s linear, opacity 0.3s ease-in;
 }
 
 
@@ -85,7 +86,7 @@
 }
 
 .menu--active .top-nav-arrow-down {  
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
 
 .games-menu-choose {
@@ -275,6 +276,7 @@
 /* Services menu */
 
 .services-menu {
+    z-index: 1;
     position: absolute;
     left: 0;
     top: var(--header__top-height);
@@ -490,10 +492,298 @@
     opacity: 1;
 }
 
+/* Header bot */
+
 .header__bot {
     height: var(--header__bot-height);
+    background-color: rgba(39, 39, 41, 0.95);
+    position: relative;
 }
 
-.content {
-    height: 2000px;
+.header__bot::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #3C3C3F;
 }
+
+.header__bot-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.bot-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.bot-nav-item {
+    margin-right: 42px;
+}
+
+.bot-nav-link {
+    text-decoration: none;
+    color: #e0ddce;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: var(--header__bot-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bot-nav-link::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #E4DEB9;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.bot-nav-item:first-child .bot-nav-link::after {
+    width: 0;
+}
+
+.bot-nav-link:hover::after {
+    opacity: 1;
+}
+
+.bot-nav-item--active .bot-nav-link::after{
+    opacity: 1;
+    background-color: #f9b723;
+    box-shadow: 0 0 20px 1px rgba(255, 84, 0, 0.8);
+}
+
+.bot-wg-icon {
+    width: 16px;
+}
+
+.bot-input {
+    position: relative;
+    z-index: 0;
+}
+
+.bot-input-search {
+    width: 300px;
+    height: 32px;
+    background-color: #19191b;
+    color: #858271;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    padding: 0 20px;
+    font-size: 1.3rem;
+}
+
+.bot-input:focus-within .bot-input-search {
+    color: #19191b;
+    background-color: #F9B723;
+}
+
+.bot-input:focus-within .bot-input-search::placeholder {
+    color: #19191b;
+}
+
+.bot-input:focus-within .bot-input-btn {
+    color: #19191b;
+}
+
+
+.bot-input-btn {
+    color: #F9B723;
+    font-size: 1.4rem;
+    position: absolute;
+    right: 16px;
+    top: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+/* Content */
+
+.content {
+    padding: 0 40px !important;
+    height: 3000px;
+    color: #e9e3be;
+}
+
+.big-logo-link {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin: 26px auto 10px;
+    text-decoration: none;
+}
+
+.content-logo-big {
+
+}
+
+/* Mod Description */
+
+.mod-desc {
+    padding: 0 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.mod-desc-lang {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    font-weight: normal;
+    width: 146px;
+    height: 22px;
+    background-color: #e9e3be;
+    color: #050505;
+    border-radius: 11px;
+    padding: 0 12px;
+    margin-left: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+.mod-desc-arrow {
+    font-size: 1rem;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    transition: transform .2s linear;
+}
+
+.mod-desc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #e9e3be;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    overflow: hidden;
+    z-index: 1;
+    display: none;
+}
+
+.mod-desc-lang--active .mod-desc-list {
+    display: block;
+}
+
+.mod-desc-lang--active {
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.mod-desc-lang--active .mod-desc-arrow {
+    transform: rotateX(180deg);
+}
+
+.mod-desc-item {
+    height: 22px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.mod-lang-flag {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Mod categories */
+
+.mod-categories {
+    font-size: 1.4rem;
+    font-weight: bold;
+    height: 52px;
+    background-color: #050505;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-top: 20px;
+    border-radius: 36px;
+}
+
+.mod-categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 10px;
+    display: flex;
+}
+
+.mod-categories-item {
+    margin-right: 12px;
+}
+
+.mod-categories-item--active .mod-categories-link{
+    background-color: #F9B723;
+    color: #0e0e0f;
+}
+
+.mod-categories-item:hover .mod-categories-link {
+    background-color: #353535;
+}
+
+.mod-categories-item.mod-categories-item--active:hover .mod-categories-link{
+    background-color: #F9B723;
+    color: #0e0e0f;
+}
+
+.mod-categories-link {
+    text-decoration: none;
+    color: #858271;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 16px;
+    background-color: #272729;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color .2s linear;
+}
+
+.mod-categories-link::after {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 5px;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    background-color: #050505;
+    border-radius: 50%;
+}
+.mod-categories-link::before {
+    position: absolute;
+    display: block;
+    content: "";
+    right: 5px;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    background-color: #050505;
+    border-radius: 50%;
+}
+
