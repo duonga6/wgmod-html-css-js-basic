@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="./assets/font/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
     <link href="https://www.dafontfree.net/embed/aGVsaW9zY29uZC1ib2xkJmRhdGEvNDYvaC82MzU3MS9IZWxpb3NDb25kLUJvbGQub3Rm" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <title>Mods for World of Tanks—Download from the official website</title>
 </head>
@@ -219,7 +219,7 @@
                                                 ></path>
                                                 <path
                                                     class="services-icon-fill"
-                                                    d="M13.5,13.1col l-3.4,0-6.1,2.7-6.1,6.1c0,0.3,0,0.6,0.1,0.9c1-2.2,2.6-4.2,5.4-5.3c-0.2-0.2-0.5-0.4-0.7-0.6
+                                                    d="M13.5,13.1col l-3 ls-4 m-6 c-6.4,0-6.1,2.7-6.1,6.1c0,0.3,0,0.6,0.1,0.9c1-2.2,2.6-4.2,5.4-5.3c-0.2-0.2-0.5-0.4-0.7-0.6
                                                 c1.3-0.2,2.6-0.1,3.7,0.3c-0.7,0.7-1.7,1.7-2.2,2.5l-0.2-1.2c-2.5,1.7-2.8,5.2-2.4,7.4c1.9-0.3,3.5-1.2,4.6-3.1l-1.3,0.1
                                                 c0.8-0.8,1.5-1.8,2.1-2.9c0.6,1.1,1.1,2.1,1.6,3.2c-0.4-0.1-0.6-0.2-1-0.3c0.1,1.5-0.1,2.9-0.5,4.2c1.8-1.1,3-3,3-5.2
                                                 C19.6,15.8,16.9,13.1,13.5,13.1z"
@@ -382,18 +382,18 @@
                                     <i class="fa-solid fa-chevron-down top-nav-arrow-down"></i>
                                 </a>
                             </li>
-                            <li class="top-nav-item-left">
+                            <li class="top-nav-item-left top-nav-mobile-hide">
                                 <a href="" class="top-nav-link-left top-nav-link-left--premium">
                                     Premium Shop
                                 </a>
                             </li>
-                            <li class="top-nav-item-left">
+                            <li class="top-nav-item-left top-nav-mobile-hide">
                                 <a href="" class="top-nav-link-left">
                                     Player Support
                                 </a>
                             </li>
                         </ul>
-                        <ul class="top-nav-list-right">
+                        <ul class="top-nav-list-right top-nav-mobile-hide">
                             <li class="top-nav-item-right">
                                 <a href="" class="top-nav-link-right">
                                     Log in
@@ -408,6 +408,14 @@
                                 </a>
                             </li>
                         </ul>
+                        <div class="mobile-user-log">
+                            <i class="fa-regular fa-user mobile-user-log-icon"></i>
+                            <div class="log-type">
+                                <p class="sign-in">Log in</p>
+                                <p class="sign-in">Create account</p>
+                                <i class="fa-solid fa-chevron-up close-log-type"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -440,10 +448,14 @@
                                     MODMAKER SECTION
                                 </a>
                             </li>
+                            <li class="open-input-tablet">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </li>
                         </ul>
                         <div class="bot-input">
                             <input type="text" name="" id="" class="bot-input-search" placeholder="SEARCH MODS...">
                             <i class="fa-solid fa-magnifying-glass bot-input-btn"></i>
+                            <i class="fa-solid fa-xmark close-input-table"></i>
                         </div>
                     </div>
                 </div>
@@ -554,7 +566,197 @@
                     <h2 class="mods-status-name">POPULAR MODS</h2>
                     <div class="mods-list">
                         <div class="row">
-                            <div class="col l-3">
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
                                 <div class="mods-item">
                                     <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
                                     <div class="mods-item-content">
@@ -593,12 +795,538 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="more-mods-btn">MORE POPULAR MODS</button>
+                    </div>
+                </div>
+                <div class="mods-by-status">
+                    <h2 class="mods-status-name">NEW MODS</h2>
+                    <div class="mods-list">
+                        <div class="row">
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="more-mods-btn">MORE NEW MODS</button>
+                    </div>
+                </div>
+                <div class="mods-by-status">
+                    <h2 class="mods-status-name">UPDATE MODS</h2>
+                    <div class="mods-list">
+                        <div class="row">
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-3 ls-4 m-6 c-6">
+                                <div class="mods-item">
+                                    <img src="./assets/img/mod-img/aslain.jpg" alt="" class="mods-item-bg">
+                                    <div class="mods-item-content">
+                                        <div class="mods-item-infor">
+                                            <h3 class="mods-item-name">Aslain's WoT Modpack</h3>
+                                            <div class="mods-version">
+                                                <p class="mods-item-version"><span class="mods-version-highlight"> 11 </span>for <span class="mods-version-highlight"> WoT 1.20.0.1</span></p>
+                                                <p class="mods-item-author">Created by: <span class="mods-author-name">Aslain</span></p>
+                                            </div>
+                                            <button type="button" class="mods-download-btn">DOWNLOAD MOD</button>
+                                        </div>
+                                        <ul class="mod-categories-list mb-16">
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    DAMAGE PANELS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    MODPACKS
+                                                </a>
+                                            </li>
+                                            <li class="mod-categories-item">
+                                                <a href="#" class="mod-categories-link">
+                                                    HANGARS
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="mods-rating">
+                                        <p class="rating-points">
+                                            4.7
+                                        </p>
+                                        <img src="./assets/img/rating-bg/rating.svg" alt="" class="rating-bg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="more-mods-btn">MORE UPDATE MODS</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer">
-
+            <div class="grid wide">
+                <div class="footer-container">
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item">
+                            <a href="" class="footer-nav-link">
+                                <img src="./assets/img/wg-icon/bot-logo.png" alt="" class="footer-wg-icon">
+                                MODHUB
+                            </a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="" class="footer-nav-link">
+                                TERMS OF USE
+                            </a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="" class="footer-nav-link">
+                                MOD HUB TERMS OF USE
+                            </a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="" class="footer-nav-link">
+                                EULA
+                                <i class="fa-solid fa-arrow-up-right-from-square footer-link-external"></i>
+                            </a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="" class="footer-nav-link">
+                                PRIVACY POLICY
+                                <i class="fa-solid fa-arrow-up-right-from-square footer-link-external"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-lang">
+                        WEBSITE LANGUAGE:
+                        <div class="footer-lang-choose">
+                            <div class="footer-lang-current">
+                                <img src="./assets/img/lang-flag/english.png" alt="" class="footer-current-lang-flag">
+                                ENGLISH
+                                <i class="fa-solid fa-chevron-up footer-lang-arrow"></i>
+                                <ul class="footer-lang-list">
+                                    <li class="footer-lang-item">
+                                        <img src="./assets/img/lang-flag/russian.png" alt="" class="mod-lang-flag">
+                                        RUSSIAN
+                                    </li>
+                                    <li class="footer-lang-item">
+                                        <img src="./assets/img/lang-flag/english.png" alt="" class="mod-lang-flag">
+                                        ENGLISH
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./assets/js/main.js"></script>

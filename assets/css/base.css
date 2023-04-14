@@ -16,6 +16,19 @@
     src: url("../font/warhelioscondc-webfont.woff") format("woff");
 }
 
+@keyframes FadeIn {
+    from {
+        display: none;
+        opacity: 0;
+        transform: translateY(-56px);
+    }
+    to {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 * {
     box-sizing: inherit;
 }
@@ -33,6 +46,7 @@ body {
     background-size: contain;
     background-repeat: repeat-y;
     background-position: top center;
+    margin: 0;
 }
 
 ::-webkit-scrollbar {

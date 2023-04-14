@@ -331,10 +331,37 @@ openLangList.addEventListener('click', function() {
     openLangList.classList.toggle('mod-desc-lang--active');
 })
 
+var openFooterLangList = document.querySelector('.footer-lang-choose');
+openFooterLangList.addEventListener('click',() => {
+    openFooterLangList.classList.toggle('footer-lang-choose--active')
+})
+
 var listCaterory = document.querySelectorAll('.mod-categories-item');
 
 Array.from(listCaterory).forEach((current) => {
     current.addEventListener('click', function() {
         current.classList.toggle('mod-categories-item--active');
     })
+})
+
+var openInputTablet = document.querySelector('.open-input-tablet');
+openInputTablet.addEventListener('click', () => {
+    document.querySelector('.bot-input').classList.toggle('bot-input--active');
+    openInputTablet.classList.add('open-input-tablet--active');
+})
+
+var closeInputTablet = document.querySelector('.close-input-table');
+closeInputTablet.addEventListener('click', () => {
+    document.querySelector('.bot-input').classList.remove('bot-input--active');
+    openInputTablet.classList.remove('open-input-tablet--active');
+})
+
+var openLogType = document.querySelector('.mobile-user-log-icon');
+openLogType.addEventListener('click', () => {
+    document.querySelector('.mobile-user-log').classList.toggle('mobile-user-log--active');
+})
+
+var closeLogType = document.querySelector('.close-log-type');
+closeLogType.addEventListener('click', () => {
+    document.querySelector('.mobile-user-log').classList.remove('mobile-user-log--active');
 })
