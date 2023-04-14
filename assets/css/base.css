@@ -44,6 +44,14 @@ body {
     border-radius: 5px;
 }
 
+.ml-20 {
+    margin-left: 20px !important;
+}
+
+.mb-16 {
+    margin-bottom: 16px !important;
+}
+
 @keyframes menu-open {
     from {
         transform: translateY(calc(-410px - var(--header-height)));

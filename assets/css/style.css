@@ -728,7 +728,7 @@
 .mod-categories-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 0 10px;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
 }
@@ -809,31 +809,83 @@
 }
 
 .mods-item {
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 56px;
+    z-index: 0;
+}
+
+.mods-item:hover {
+    cursor: pointer;
+}
+
+.mods-item:hover .mods-item-bg {
+    opacity: 0.4;
+}
+
+.mods-item:hover .mods-download-btn {
+    opacity: 1;
+}
+
+.mods-item:hover .mods-item-infor{
+    transform: translateY(-40px);
+}
+
+.mods-item::after {
     display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #050505);
 }
 
 .mods-item-bg {
-    
+    flex: 1;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
-.mods-item-content {
+/* Mod content */
 
+.mods-item-content {
+    flex: 1;
+    background-color: #050505;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .mods-item-name {
-
+    margin: 4px 0 4px;
+    font-size: 2rem;
 }
 
 .mods-item-infor {
+    font-size: 1.3rem;
+    z-index: 1;
+}
 
+.mods-version {
+    display: flex;
+    align-items: center;
+    color: #97947f;
 }
 
 .mods-item-version {
-
+    margin-right: 8px;
 }
 
 .mods-version-highlight {
-
+    color: #e9e3be;
 }
 
 .mods-item-author {
@@ -841,5 +893,59 @@
 }
 
 .mods-author-name {
+    color: #fab81b;
+}
 
+/* Button download */
+
+.mods-download-btn {
+    height: 32px;
+    width: 190px;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    background-color: #f9b723;
+    cursor: pointer;
+    transition: background-color .1s linear;
+    opacity: 0;
+}
+
+.mods-download-btn:hover {
+    background-color: #f3bc46;
+}
+
+/* Mods rating */
+.mods-rating {
+    display: block;
+    content: "";
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #170303;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgba(255, 84, 0, 0.5);
+    overflow: hidden;
+}
+
+.rating-points {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    color: #fab81b;
+    font-weight: bolder;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 84, 0, 0.8);
+}
+
+.rating-bg {
+    width: 152px;
+    position: absolute;
+    margin-top: 15px;
+    margin-right: 1px;
 }
