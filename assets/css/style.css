@@ -730,10 +730,11 @@
     padding: 0;
     margin: 0 0 0 10px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .mod-categories-item {
-    margin-right: 12px;
+    margin: 4px 12px 4px 0;
 }
 
 .mod-categories-item--active .mod-categories-link{
@@ -787,3 +788,58 @@
     border-radius: 50%;
 }
 
+
+/* Mod container */
+
+.mods-container {
+
+}
+
+.mods-by-status {
+
+}
+
+.mods-status-name {
+    font-size: 1.8rem;
+    margin: 50px 0 0;
+}
+
+.mods-list {
+    margin-top: 42px;
+}
+
+.mods-item {
+    display: block;
+}
+
+.mods-item-bg {
+    
+}
+
+.mods-item-content {
+
+}
+
+.mods-item-name {
+
+}
+
+.mods-item-infor {
+
+}
+
+.mods-item-version {
+
+}
+
+.mods-version-highlight {
+
+}
+
+.mods-item-author {
+
+}
+
+.mods-author-name {
+
+}
