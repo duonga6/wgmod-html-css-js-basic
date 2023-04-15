@@ -1,7 +1,7 @@
 var gameItems = document.getElementsByClassName('games-item');
 // console.log(gameItems);
 
-var gamesListData = [
+const gamesListData = [
     {
         class: 'wot',
         name: 'WORLD OF TANKS',
@@ -71,10 +71,20 @@ var gamesListData = [
         imgUrlBg: './assets/img/game-background/wowb.jpg',
         color: '#00b4b9',
         platform: ['ANDROID', 'IOS']
+    },
+    {
+        class: 'moo',
+        name: 'MASTER OF ORION',
+        desc: 'The iconic 4X strategy gameplay of Explore, Expand, Exploit and Exterminate that formed the blueprint for a whole generation of 4X games has been resurrected and upgraded.',
+        link: ['Game Website', 'Forums','Player Support'],
+        imgUrlIcon: './assets/img/game-icon/moo-big-icon.png',
+        imgUrlBg: './assets/img/game-background/moo.jpg',
+        color: '#8201ff',
+        platform: ['WINDOWS', 'MAC']
     }
 ];
 
-var listPlatform = [
+const listPlatform = [
     {
         name: 'WINDOWS',
         element: `<li class="game-platform-item"><i class="fa-brands fa-windows game-platform-icon"></i>WINDOWS</li>`
@@ -130,6 +140,7 @@ const setColor = () => {
         }
     })
 }
+
 setColor();
 
 for (let i = 0; i < gamesList.length; i++) {
@@ -232,7 +243,7 @@ menuServiceCheck.addEventListener('click', function() {
 })
 
 
-var servicesListData = [
+const servicesListData = [
     {
         class: 'ps',
         name: 'PREMIUM SHOP',
@@ -364,4 +375,144 @@ openLogType.addEventListener('click', () => {
 var closeLogType = document.querySelector('.close-log-type');
 closeLogType.addEventListener('click', () => {
     document.querySelector('.mobile-user-log').classList.remove('mobile-user-log--active');
+})
+
+
+const menuDESC = document.querySelector('.mod-categories-container');
+let menuDESC_isDown = false; // ktra click chuột
+let menuDESC_startX; // Tọa độ của chuột - Tọa độ cạnh trái của menu
+let menuDESC_scollLeft; // Giá trị px menu đã cuộn mặc định = 0
+
+menuDESC.addEventListener('mousedown', (e) => {
+    menuDESC_isDown = true;  // Đã click
+    menuDESC_startX = e.pageX - menuDESC.offsetLeft; 
+    menuDESC_scollLeft = menuDESC.scrollLeft;
+});
+
+menuDESC.addEventListener('mouseleave', () => {
+    menuDESC_isDown = false;
+});
+
+menuDESC.addEventListener('mouseup', () => {
+    menuDESC_isDown = false;
+});
+
+menuDESC.addEventListener('mousemove', (e) => {
+    if (!menuDESC_isDown)
+        return;
+    e.preventDefault();
+    const x = e.pageX - menuDESC.offsetLeft;  // Tọa độ của chuột - Tọa độ cạnh trái của menu thay đổi khi click chuột
+    const walk = x - menuDESC_startX; // quãng đường di chuyển của chuột
+    menuDESC.scrollLeft = menuDESC_scollLeft - walk; // cuộn menu theo khoảng cách chuột đã di chuyển
+});
+
+
+const gameScroll = document.querySelector('.games-list-container');
+const gameArrowLeft = document.querySelector('.games-arrow-nav.to-left');
+const gameArrowRight = document.querySelector('.games-arrow-nav.to-right');
+
+const serviceScoll = document.querySelector('.services-list-container');
+const serviceArrowLeft = document.querySelector('.services-arrow-nav.to-left');
+const serviceArrowRight = document.querySelector('.services-arrow-nav.to-right');
+
+let gameScroll_isDown = false; // ktra click chuột
+let gameScroll_startX; // Tọa độ của chuột - Tọa độ cạnh trái của menu
+let gameScroll_scollLeft; // Giá trị px menu đã cuộn mặc định = 0
+
+gameScroll.addEventListener('mousedown', (e) => {
+    gameScroll_isDown = true;  // Đã click
+    gameScroll_startX = e.pageX - gameScroll.offsetLeft; 
+    gameScroll_scollLeft = gameScroll.scrollLeft;
+});
+
+gameScroll.addEventListener('mouseleave', () => {
+    gameScroll_isDown = false;
+});
+
+gameScroll.addEventListener('mouseup', () => {
+    gameScroll_isDown = false;
+});
+
+gameScroll.addEventListener('mousemove', (e) => {
+    if (!gameScroll_isDown)
+        return;
+    e.preventDefault();
+    const x = e.pageX - gameScroll.offsetLeft;  // Tọa độ của chuột - Tọa độ cạnh trái của menu thay đổi khi click chuột
+    const walk = x - gameScroll_startX; // quãng đường di chuyển của chuột
+    gameScroll.scrollLeft = gameScroll_scollLeft - walk; // cuộn menu theo khoảng cách chuột đã di chuyển
+    if (gameScroll.scrollLeft == 0) {
+        gameArrowRight.classList.add('games-arrow-nav--active');
+        gameArrowLeft.classList.remove('games-arrow-nav--active');
+    }
+    if (gameScroll.scrollLeft == gameScroll.scrollWidth - gameScroll.clientWidth) {
+        gameArrowLeft.classList.add('games-arrow-nav--active');
+        gameArrowRight.classList.remove('games-arrow-nav--active');
+    }
+});
+
+gameArrowLeft.addEventListener('click', () => {
+    gameArrowRight.classList.add('games-arrow-nav--active');
+    gameArrowLeft.classList.remove('games-arrow-nav--active');
+    gameScroll.style.scrollBehavior = 'smooth';
+    gameScroll.scrollLeft = 0;
+    gameScroll.style.scrollBehavior = 'auto';
+})
+
+gameArrowRight.addEventListener('click', () => {
+    gameArrowLeft.classList.add('games-arrow-nav--active');
+    gameArrowRight.classList.remove('games-arrow-nav--active');
+    gameScroll.style.scrollBehavior = 'smooth';
+    gameScroll.scrollLeft = gameScroll.scrollWidth - gameScroll.clientWidth;
+    gameScroll.style.scrollBehavior = 'auto';
+})
+
+
+let serviceScoll_isDown = false;
+let serviceScoll_startX;
+let serviceScoll_scollLeft;
+
+serviceScoll.addEventListener('mousedown', (e) => {
+    serviceScoll_isDown = true;
+    serviceScoll_startX = e.pageX - serviceScoll.offsetLeft;
+    serviceScoll_scollLeft = serviceScoll.scrollLeft;
+})
+
+serviceScoll.addEventListener('mouseleave', () => {
+    serviceScoll_isDown = false;
+})
+
+serviceScoll.addEventListener('mouseup', () => {
+    serviceScoll_isDown = false;
+})
+
+serviceScoll.addEventListener('mousemove', (e) => {
+    if (!serviceScoll_isDown)
+        return;
+    const x = e.pageX - serviceScoll.offsetLeft;
+    const walk = x - serviceScoll_startX;
+    serviceScoll.scrollLeft = serviceScoll_scollLeft - walk;
+    if (serviceScoll.scrollLeft == 0) {
+        serviceArrowRight.classList.add('services-arrow-nav--active');
+        serviceArrowLeft.classList.remove('services-arrow-nav--active');
+    }
+    if (serviceScoll.scrollLeft == serviceScoll.scrollWidth - serviceScoll.clientWidth) {
+        serviceArrowLeft.classList.add('services-arrow-nav--active');
+        serviceArrowRight.classList.remove('services-arrow-nav--active');
+    }
+})
+
+serviceArrowLeft.addEventListener('click', () => {
+    serviceArrowRight.classList.add('services-arrow-nav--active');
+    serviceArrowLeft.classList.remove('services-arrow-nav--active');
+    serviceScoll.style.scrollBehavior = 'smooth';
+    serviceScoll.scrollLeft = 0;
+    serviceScoll.style.scrollBehavior = 'auto';
+})
+
+serviceArrowRight.addEventListener('click', () => {
+    serviceArrowLeft.classList.add('services-arrow-nav--active');
+    serviceArrowRight.classList.remove('services-arrow-nav--active');
+    serviceScoll.style.scrollBehavior = 'smooth';
+    serviceScoll.scrollLeft = serviceScoll.scrollWidth - serviceScoll.clientWidth;
+    serviceScoll.style.scrollBehavior = 'auto';
 })

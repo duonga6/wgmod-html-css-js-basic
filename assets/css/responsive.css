@@ -47,6 +47,7 @@
         display: none;
         opacity: 0;
         animation: FadeIn .2s linear forwards;
+        border-top: 1px solid #3C3C3F;
     }
 
     .bot-input--active {
@@ -138,6 +139,16 @@
     .footer-lang-choose--active .footer-lang-arrow {
         transform: rotate(0);
     }
+
+    /* Game list*/
+    .games-list-container-with-arrow {
+        width: 660px;
+    }
+
+    /* Services list */
+    .services-list-container-with-arrow {
+        width: 586px;
+    }
 }
 
 /* Mobile */
@@ -187,7 +198,7 @@
     .sign-in {
         margin: 0;
         color: #E0DDCE;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         width: 100%;
         height: 40px;
         line-height: 4rem;
