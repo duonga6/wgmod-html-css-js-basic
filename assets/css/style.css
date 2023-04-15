@@ -1128,3 +1128,6 @@
 .footer-lang-choose--active .footer-lang-arrow {
     transform: rotate(180deg);
 }
+
+.mobile-user-log {
+    display: none;
