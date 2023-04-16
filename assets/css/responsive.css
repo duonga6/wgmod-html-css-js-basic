@@ -145,6 +145,14 @@
         width: 660px;
     }
 
+    .games-arrow-nav.to-left {
+        left: -36px;
+    }
+    
+    .games-arrow-nav.to-right {
+        right: -36px;
+    }
+
     /* Services list */
     .services-list-container-with-arrow {
         width: 586px;
@@ -228,5 +236,47 @@
 
     .content {
         margin-top: -56px !important;
+    }
+
+    /* Menu scroll */
+    .games-list-container-with-arrow {
+        width: 660px;
+    }
+    
+    .services-list-container-with-arrow {
+        width: 586px;
+    }
+
+    /* Menu pc hiden */
+
+    .games-menu {
+        display: none;
+    }
+
+    .services-menu {
+        display: none;
+    }
+
+    /* Content */
+
+    .content {
+        padding: 0 20px;
+    }
+
+    /* Footer */
+
+    .footer {
+        height: 200px;
+    }
+
+    .footer-container {
+    }
+
+    .footer-nav-list {
+        flex-direction: column;
+    }
+
+    .footer-lang {
+        flex-direction: column;
     }
 }

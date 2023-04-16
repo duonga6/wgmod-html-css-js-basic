@@ -247,7 +247,7 @@
 }
 
 .game-desc {
-    max-width: 338px;
+    width: 338px;
     height: 100%;
     padding: 52px 20px 0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -482,7 +482,7 @@
 }
 
 .services-desc {
-    max-width: 338px;
+    width: 338px;
     height: 100%;
     padding: 52px 20px 0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -722,7 +722,7 @@
     display: none;
     color: #F9B723;
     font-size: 2.0rem;
-    margin: auto;
+    margin: auto 0 auto auto;
     padding: 12px;
 }
 
@@ -947,7 +947,7 @@
     height: 340px;
     position: relative;
     border-radius: 10px;
-    margin-bottom: 56px;
+    margin: 0 auto 56px;
     z-index: 0;
 }
 
@@ -1051,6 +1051,44 @@
     background-color: #ffcb5c;
     cursor: pointer;
 }
+
+/* Mod item categories */
+
+.mods-item-categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+
+}
+
+.mods-item-categories-item {
+    margin: 6px 6px 0;
+}
+
+
+.mods-item-categories-item:hover .mods-item-categories-link {
+    background-color: #353535;
+}
+
+
+.mods-item-categories-link {
+    text-decoration: none;
+    color: #858271;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 16px;
+    background-color: #272729;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color .2s linear;
+}
+
 
 /* Mods rating */
 .mods-rating {
