@@ -367,17 +367,6 @@ closeInputTablet.addEventListener('click', () => {
     openInputTablet.classList.remove('open-input-tablet--active');
 })
 
-var openLogType = document.querySelector('.mobile-user-log-icon');
-openLogType.addEventListener('click', () => {
-    document.querySelector('.mobile-user-log').classList.toggle('mobile-user-log--active');
-})
-
-var closeLogType = document.querySelector('.close-log-type');
-closeLogType.addEventListener('click', () => {
-    document.querySelector('.mobile-user-log').classList.remove('mobile-user-log--active');
-})
-
-
 const menuDESC = document.querySelector('.mod-categories-container');
 let menuDESC_isDown = false; // ktra click chuột
 let menuDESC_startX; // Tọa độ của chuột - Tọa độ cạnh trái của menu
@@ -515,4 +504,38 @@ serviceArrowRight.addEventListener('click', () => {
     serviceScoll.style.scrollBehavior = 'smooth';
     serviceScoll.scrollLeft = serviceScoll.scrollWidth - serviceScoll.clientWidth;
     serviceScoll.style.scrollBehavior = 'auto';
+});
+
+
+
+// Position cho menu mobile
+
+const navMobile = document.querySelector('.nav-open-bar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 36)
+        navMobile.style.top = 0;
+    else
+        navMobile.style.top = '36px'
+})
+
+
+// Open menu game mobile
+
+const menuGameMobile = document.querySelectorAll('.games-mobile-item');
+
+function disableOpenGameMobile() {
+    Array.from(menuGameMobile).forEach((current) => {
+        current.classList.remove('games-mobile-item--active')
+    })
+}
+
+Array.from(menuGameMobile).forEach((current) => {
+    current.addEventListener('click', () => {
+        if (!current.classList.contains('games-mobile-item--active')) {
+            disableOpenGameMobile();
+            current.classList.add('games-mobile-item--active');
+        }
+        else
+            current.classList.remove('games-mobile-item--active');
+    })
 })

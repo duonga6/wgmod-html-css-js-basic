@@ -163,7 +163,7 @@
 
 @media (max-width: 739px) {
     .header__top-container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .top-nav-mobile-hide {
@@ -258,6 +258,211 @@
         display: none;
     }
 
+    /* Games menu */
+
+    .games-menu-mobile {
+        display: block;
+        position: fixed;
+        z-index: 10;
+        top: 36px;
+        width: 100%;
+    }
+
+    .games-mobile-head {
+        height: 50px;
+        width: 100%;
+        margin: 0;
+        line-height: 5rem;
+        background-color: #171717;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.6rem;
+        font-weight: normal;
+        padding: 0 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .games-mobile-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .games-mobile-item {
+        height: 50px;
+        width: 100%;
+        line-height: 5rem;
+        background-color: #171717;
+        color: rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 1.4rem;
+        overflow: hidden;
+        transition: height .3s linear;
+    }
+
+    .games-mobile-item.games-mobile-item--active {
+        position: relative;
+        height: 434px;
+    }
+
+    .games-mobile-item.games-mobile-item--active::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .games-mobile-item-container {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        position: relative;
+    }
+
+    .games-mobile-item--active .games-mobile-item-container::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 300px;
+        width: 100%;
+        margin-left: -12px;
+        background-image: url(../img/game-background/wot.jpg);
+        background-repeat: no-repeat;
+        background-size: auto 300px;
+        background-position: center left -400px;
+    }
+
+    .games-mobile-item--active .games-mobile-item-container::after{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 300px;
+        width: 100%;
+        margin-left: -12px;
+        background-image: linear-gradient(transparent, transparent, transparent, #000);
+        background-repeat: no-repeat;
+    }
+
+
+    .games-mobile-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 12px;
+        z-index: 1;
+    }
+
+    .games-mobile-name {
+        margin: 0;
+        font-size: 1.6rem;
+        z-index: 1;
+    }
+
+    .games-mobile-arrow {
+        margin-left: auto;
+        font-size: 1rem;
+        z-index: 1;
+    }
+
+    .games-mobile-content-container {
+        height: 384px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .games-mobile-bg {
+        flex: 1;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .games-mobile-home-link {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+    }
+
+    .games-mobile-main-content {
+        flex: 1;
+        background-color: #000;
+        display: flex;
+        padding-bottom: 16px;
+    }
+
+    .games-mobile-desc {
+        flex: 5;
+        z-index: 1;
+        padding-left: 16px;
+    }
+
+    .games-mobile-content-heading {
+        margin: 0 0 12px;
+        font-size: 1.8rem;
+        line-height: 2rem;
+        font-weight: normal;
+    }
+
+    .games-mobile-content-desc {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        color: var(--white-color);
+    }
+
+    .games-mobile-desc-platform {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px 0 0;
+        padding: 0;
+    }
+
+    .games-mobile-platform-item {
+        color: var(--white-color);
+        margin-right: 16px;
+        font-size: 1.2rem;
+        line-height: 2.6rem;
+    }
+
+    .games-mobile-platform-icon {
+        margin-right: 4px;
+    }
+
+    .games-mobile-link {
+        flex: 3;
+        z-index: 1;
+        padding-left: 12px;
+        margin-left: 24px;
+    }
+
+    .games-mobile-link-list {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        list-style: disc;
+        color: var(--white-color);
+        font-size: 1.2rem;
+    }
+
+    .games-mobile-link-item {
+        line-height: 2.4rem;
+    }
+
+    .games-mobile-link-link {
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: var(--white-color);
+    }
+
     /* Content */
 
     .content {
@@ -284,21 +489,26 @@
     /* Menu nav mobile */
 
     .nav-mobile {
+        display: none;
     }
 
     .nav-open-bar {
-        background-color: rgba(39, 39, 41, 0.95);
-        width: 30px;
-        height: 30px;
+        position: fixed;
+        top: 36px;
+        /* background-color: rgba(39, 39, 41, 0.95); */
+        background-color: var(--header__top-color);
+        width: 48px;
+        height: 48px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid #3C3C3F;
+        border: 1px solid rgba(60, 60, 63, 0.4);
         border-radius: 4px;
+        transition: top .1s linear;
     }
 
     .nav-open-icon {
-        font-size: 1.6rem;
-        color: #e9e3be;
+        font-size: 2.2rem;
+        color: var(--white-color);
     }
 }

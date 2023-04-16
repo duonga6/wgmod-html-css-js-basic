@@ -747,7 +747,7 @@
 .big-logo-link {
     display: flex;
     justify-content: center;
-    width: 300px;
+    width: 200px;
     margin: 26px auto 16px;
     text-decoration: none;
 }
@@ -1281,6 +1281,6 @@
     transform: rotate(180deg);
 }
 
-/* .mobile-user-log {
+.games-menu-mobile {
     display: none;
-} */
+}
