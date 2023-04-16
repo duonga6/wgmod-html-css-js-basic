@@ -261,16 +261,19 @@
     /* Games menu */
 
     .games-menu-mobile {
+        display: block;
         position: absolute;
         z-index: 10;
         top: 36px;
         width: 100%;
-        transform: translateY(200px);
+        transform: translateY(-500px);
+        opacity: 0;
+        transition: transform .2s linear, opacity .2s linear;
     }
 
     .games-menu-mobile.is--open {
         transform: translateY(0);
-
+        opacity: 1;
     }
 
     .games-mobile-head {
@@ -327,8 +330,12 @@
         position: relative;
     }
 
-    .games-mobile-item--active .games-mobile-item-container::before{
+    .games-mobile-item.games-mobile-item--active .games-mobile-item-container::before {
         display: block;
+    }
+
+    .games-mobile-item-container::before{
+        display: none;
         content: "";
         position: absolute;
         top: 0;
@@ -340,9 +347,13 @@
         background-size: auto 300px;
         background-position: center left -400px;
     }
+ 
+    .games-mobile-item.games-mobile-item--active .games-mobile-item-container::after {
+        display: block
+    }
 
-    .games-mobile-item--active .games-mobile-item-container::after{
-        display: block;
+    .games-mobile-item-container::after{
+        display: none;
         content: "";
         position: absolute;
         top: 0;
@@ -442,7 +453,7 @@
     }
 
     .games-mobile-link {
-        flex: 3;
+        flex: 4;
         z-index: 1;
         padding-left: 12px;
         margin-left: 24px;
@@ -466,6 +477,22 @@
         text-decoration: none;
         font-size: 1.4rem;
         color: var(--white-color);
+    }
+
+    .games-mobile-close-btn {
+        height: 24px;
+        width: 100%;
+        background-color: #171717;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .games-mobile-close-icon {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 4px 8px;
+        transform: rotate(180deg);
     }
 
     /* Content */

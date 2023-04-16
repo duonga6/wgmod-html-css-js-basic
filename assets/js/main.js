@@ -87,35 +87,43 @@ const gamesListData = [
 const listPlatform = [
     {
         name: 'WINDOWS',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-windows game-platform-icon"></i>WINDOWS</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-windows game-platform-icon"></i>WINDOWS</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-windows games-mobile-platform-icon"></i>WINDOWS</li>`
     },
     {
         name: 'MAC',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-apple game-platform-icon"></i>MAC</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-apple game-platform-icon"></i>MAC</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-apple games-mobile-platform-icon"></i>MAC</li>`
     },
     {
         name: 'XBOX ONE',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-xbox game-platform-icon"></i>XBOX ONE</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-xbox game-platform-icon"></i>XBOX ONE</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-xbox games-mobile-platform-icon"></i>XBOX ONE</li>`
     },
     {
         name: 'XBOX SERIES X',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-xbox game-platform-icon"></i>XBOX SERIES X</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-xbox game-platform-icon"></i>XBOX SERIES X</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-xbox games-mobile-platform-icon"></i>XBOX SERIES X</li>`
     },
     {
         name: 'PLAYSTATION 4',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-playstation game-platform-icon"></i>PLAYSTATION 4</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-playstation game-platform-icon"></i>PLAYSTATION 4</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-playstation games-mobile-platform-icon"></i>PLAYSTATION 4</li>`
     },
     {
         name: 'PLAYSTATION 5',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-playstation game-platform-icon"></i>PLAYSTATION 5</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-playstation game-platform-icon"></i>PLAYSTATION 5</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-playstation games-mobile-platform-icon"></i>PLAYSTATION 5</li>`
     },
     {
         name: 'ANDROID',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-android game-platform-icon"></i>ANDROID</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-android game-platform-icon"></i>ANDROID</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-android games-mobile-platform-iconn"></i>ANDROID</li>`
     },
     {
         name: 'IOS',
-        element: `<li class="game-platform-item"><i class="fa-brands fa-apple game-platform-icon"></i>MAC</li>`
+        element: `<li class="game-platform-item"><i class="fa-brands fa-apple game-platform-icon"></i>MAC</li>`,
+        elementMB: `<li class="games-mobile-platform-item"><i class="fa-brands fa-apple games-mobile-platform-icon"></i>MAC</li>`
     }
 ]
 
@@ -511,7 +519,7 @@ serviceArrowRight.addEventListener('click', () => {
 
 
 
-// Position cho menu mobile
+// Position cho menu trái mobile
 
 const navMobile = document.querySelector('.nav-open-bar');
 window.addEventListener('scroll', () => {
@@ -522,7 +530,7 @@ window.addEventListener('scroll', () => {
 })
 
 
-// Open menu game mobile
+// Open item menu game mobile
 
 const menuGameMobile = document.querySelectorAll('.games-mobile-item');
 
@@ -537,8 +545,81 @@ Array.from(menuGameMobile).forEach((current) => {
         if (!current.classList.contains('games-mobile-item--active')) {
             disableOpenGameMobile();
             current.classList.add('games-mobile-item--active');
+            // console.log(generateGameMobileContent(current));
+            if (document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-content-container`) == null)
+                current.innerHTML += generateGameMobileContent(current);
+            gamesListData.forEach((item) => {
+                if (item.class == current.classList[1]) {
+                    let myClass = document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-item-container`);
+                    let afterStyle = window.getComputedStyle(myClass, '::before');
+                    afterStyle.setProperty('background-image', `url(${item.imgUrlBg})`);
+                }
+            })
         }
         else
             current.classList.remove('games-mobile-item--active');
     })
 })
+
+
+// Close menu mobile 
+const closeGameMobile = document.querySelector('.games-mobile-close-icon');
+closeGameMobile.addEventListener('click', () => {
+    document.querySelector('.games-menu-mobile').classList.remove('is--open');
+})
+
+function generateGameMobileContent(current) {
+    let className = current.classList[1];
+    let content = ``;
+    gamesListData.forEach((item) => {
+        if (item.class == className) {
+            content = `         <div class="games-mobile-content-container">
+            <div class="games-mobile-bg">
+                <a href="#" class="games-mobile-home-link">
+                    <img src="${item.imgUrlIcon}" alt="" class="games-mobile-icon">
+                </a>
+            </div>
+            <div class="games-mobile-main-content">
+                <div class="games-mobile-desc">
+                    <h3 class="games-mobile-content-heading">${item.name}</h3>
+                    <p class="games-mobile-content-desc">${item.desc}</p>
+                    <ul class="games-mobile-desc-platform">
+                        ${generateListPlaformMobile(item)}
+                    </ul>
+                </div>
+                <div class="games-mobile-link">
+                    <ul class="games-mobile-link-list">
+                        <h3 class="games-mobile-content-heading">LINK</h3>
+                        ${generateListLinkMobile(item)}
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+        }
+    })
+    return content;
+}
+
+function generateListPlaformMobile(item) {
+    let result = ``;
+    item.platform.forEach((plf) => {
+        listPlatform.forEach((LPLF) => {
+            if (plf == LPLF.name) {
+                result += `${LPLF.elementMB}`;
+            }
+        })
+    })
+    return result;
+};
+
+function generateListLinkMobile(item) {
+    let result = ``;
+    item.link.forEach((lk) => {
+        result += `<li class="games-mobile-link-item">
+        <a href="#" class="games-mobile-link-link">
+            ${lk}
+        </a>
+    </li>`;
+    })
+    return result;
+}
