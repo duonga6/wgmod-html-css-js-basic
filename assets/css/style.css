@@ -1281,6 +1281,10 @@
     transform: rotate(180deg);
 }
 
-.games-menu-mobile {
+/* .games-menu-mobile {
     display: none;
 }
+
+.games-menu-mobile.is--open {
+    display: none;
+} */

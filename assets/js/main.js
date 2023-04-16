@@ -233,6 +233,9 @@ menuGameCheck.addEventListener('click', function() {
     menuServiceCheck.classList.remove('menu--active');
     menuGames.classList.toggle('is--open');
     menuGameCheck.classList.toggle('menu--active');
+
+    // mở menu mobile
+    document.querySelector('.games-menu-mobile').classList.toggle('is--open');
 })
 
 menuServiceCheck.addEventListener('click', function() {
