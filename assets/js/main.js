@@ -1,7 +1,6 @@
-var gameItems = document.getElementsByClassName('games-item');
-// console.log(gameItems);
+const gameItems = document.getElementsByClassName('games-item'); // list game item
 
-const gamesListData = [
+const gamesListData = [ // local game data
     {
         class: 'wot',
         name: 'WORLD OF TANKS',
@@ -84,7 +83,7 @@ const gamesListData = [
     }
 ];
 
-const listPlatform = [
+const listPlatform = [ // Platform for game
     {
         name: 'WINDOWS',
         element: `<li class="game-platform-item"><i class="fa-brands fa-windows game-platform-icon"></i>WINDOWS</li>`,
@@ -129,10 +128,10 @@ const listPlatform = [
 
 
 var gamesList = document.getElementsByClassName('games-item');
-// set màu cho active ban đầu
+// set color for --active class
 const setColor = () => {
     Array.from(gamesList).forEach((current) => {
-        var className = current.classList[2];
+        const className = current.classList[2];
         if (className != undefined) {
             gamesListData.forEach((item) => {
                 if (`${item.class}--active` == className) {
@@ -153,23 +152,29 @@ setColor();
 
 for (let i = 0; i < gamesList.length; i++) {
 
+    // hover in text and color icon
     gamesList[i].addEventListener("mouseenter", function() {
         gamesListData.forEach((current) => {
             if (current.class == gamesList[i].classList[1]) {
+                // color for icon:
                 Array.from(document.querySelectorAll(`.${gamesList[i].classList[1]} .game-icon-fill`)).forEach((item) => {
                     item.style.fill = current.color;
                 })
+                //color for text
                 document.querySelector(`.${gamesList[i].classList[1]} .games-name`).style.color = current.color;
             }
 
         })
     })
 
+    // hover out text and color icon
     gamesList[i].addEventListener("mouseleave", function() {
         if (!gamesList[i].classList.contains(`${gamesList[i].classList[1]}--active`)) {
+            // reset color icon
             Array.from(document.querySelectorAll(`.${gamesList[i].classList[1]} .game-icon-fill`)).forEach((item) => {
                 item.style.fill = "#a6a6a7";
             })
+            // reset color text
             document.querySelector(`.${gamesList[i].classList[1]} .games-name`).style.color = "#a6a6a7";
         }
     })
@@ -177,8 +182,10 @@ for (let i = 0; i < gamesList.length; i++) {
 
 
     gamesList[i].addEventListener("click", function() {
+        // set color for active item
         Array.from(gamesList).forEach((current) => {
             var className = current.classList[2];
+            // if item has --active => != undefined: reset color icon and text
             if (className != undefined) {
                 current.classList.remove(className);
                 Array.from(document.querySelectorAll(`.${current.classList[1]} .game-icon-fill`)).forEach((fills) => {
@@ -191,15 +198,18 @@ for (let i = 0; i < gamesList.length; i++) {
             }
         })
 
+        // add --active for this click element
         gamesList[i].classList.add(`${gamesList[i].classList[1]}--active`);
+        // set color for --active
         setColor();
         
+        // change content and color of content
         gamesListData.forEach(function(current) {
             if (gamesList[i].classList.contains(current.class)) {
                 // Set text
                 document.querySelector('.game-desc .game-desc-name').innerText = current.name;
                 document.querySelector('.game-desc .game-desc-child').innerText = current.desc;
-                var gameLinkList = document.querySelector('.game-link-list');
+                const gameLinkList = document.querySelector('.game-link-list');
                 gameLinkList.innerHTML = "";
                 current.link.forEach(function(item) {
                     gameLinkList.innerHTML += `<li class="game-link-item"><a href="" class="game-item-link">${item}</a></li>`;
@@ -209,7 +219,7 @@ for (let i = 0; i < gamesList.length; i++) {
                 document.querySelector('.game-desc-name').style.filter = current.filter;
 
                 // Set platfrom
-                var list = document.querySelector('.game-desc-platform');
+                const list = document.querySelector('.game-desc-platform');
                 list.innerHTML = '';
                 current.platform.forEach((item) => {
                     listPlatform.forEach((platforms) => {
@@ -231,30 +241,45 @@ const closeMenu = (element) => {
     element.classList.remove('is--open');
 }
 
-var menuGameCheck = document.querySelector('.games-menu-open');
-var menuServiceCheck = document.querySelector('.services-menu-open');
-var menuGames = document.querySelector('.games-menu');
-var menuServices = document.querySelector('.services-menu');
+const menuGameCheck = document.querySelector('.games-menu-open'); // check for game-open <item on nav list>
+const menuServiceCheck = document.querySelector('.services-menu-open'); // check for service-open <item on nav list>
+const menuGames = document.querySelector('.games-menu'); // game menu conainter
+const menuServices = document.querySelector('.services-menu'); // services container
+const menuGamesMobile = document.querySelector('.games-menu-mobile'); // game menu conainter mobile
+const menuServicesMobile = document.querySelector('.services.games-menu-mobile'); // services menu conainter mobile
 
-menuGameCheck.addEventListener('click', function() {
-    menuServices.classList.remove('is--open');
-    menuServiceCheck.classList.remove('menu--active');
-    menuGames.classList.toggle('is--open');
-    menuGameCheck.classList.toggle('menu--active');
+// only one of two is open
 
-    // mở menu mobile
-    document.querySelector('.games-menu-mobile').classList.toggle('is--open');
+menuGameCheck.addEventListener('click', function() { //click check for game-open
+    
+    if (menuServices.classList.contains('is--open')) { // if menu services is open -> close
+        menuServices.classList.remove('is--open'); // close services first
+        menuServiceCheck.classList.remove('menu--active'); // remove --active for services menu( opacity: < 1 )
+    }
+    menuGames.classList.toggle('is--open'); // open || close 
+    menuGameCheck.classList.toggle('menu--active'); //  add --active for game menu ( opacity = 1 )
+
+    // Menu mobile
+    if (menuServicesMobile.classList.contains('is--open')) // if services is open -> close
+        menuServicesMobile.classList.remove('is--open');
+    menuGamesMobile.classList.toggle('is--open');
 })
 
-menuServiceCheck.addEventListener('click', function() {
-    menuGames.classList.remove('is--open');
-    menuGameCheck.classList.remove('menu--active');
+menuServiceCheck.addEventListener('click', function() { // Same menuGameCheck
+    if (menuGames.classList.contains('is--open')) {
+        menuGames.classList.remove('is--open');
+        menuGameCheck.classList.remove('menu--active');
+    }
     menuServices.classList.toggle('is--open');
     menuServiceCheck.classList.toggle('menu--active');
+
+    if (menuGamesMobile.classList.contains('is--open'))
+        menuGamesMobile.classList.remove('is--open');
+    menuServicesMobile.classList.toggle('is--open');
 })
 
 
-const servicesListData = [
+const servicesListData = [ // local services data
     {
         class: 'ps',
         name: 'PREMIUM SHOP',
@@ -306,18 +331,22 @@ const servicesListData = [
 ]
 
 
-var servicesList = document.querySelectorAll('.services-item');
+const servicesList = document.querySelectorAll('.services-item');  // list services item
 for (let i = 0; i < servicesList.length; i++) {
     servicesList[i].addEventListener('click', function() {
-        if (!servicesList[i].classList.contains('services--active')) {
+        if (!servicesList[i].classList.contains('services--active')) { // If this item is not --active -> active, change content. remove --active other item
+            // remove --active other
             Array.from(servicesList).forEach((current) => {
                 if (current.classList.contains('services--active'))
                     current.classList.remove('services--active');
             })
+            // set --active for this item
             servicesList[i].classList.add('services--active');
 
 
-            var currentClass = servicesList[i].classList[1];
+            const currentClass = servicesList[i].classList[1]; // get type of services: ps, gb, cp, ...
+            
+            // change content of services
             servicesListData.forEach((current) => {
                 if (current.class == currentClass) {
                     document.querySelector('.services-icon').setAttribute('src', `${current.UrlIcon}`);
@@ -325,7 +354,7 @@ for (let i = 0; i < servicesList.length; i++) {
                     document.querySelector('.services-desc-name').innerText = current.name;
                     document.querySelector('.services-desc-child').innerText = current.desc;
 
-                    var linkList = document.querySelector('.services-link-list');
+                    const linkList = document.querySelector('.services-link-list');
                     linkList.innerHTML = "";
                     current.link.forEach((item) => {
                         linkList.innerHTML += `<li class="services-link-item"><a href="" class="services-item-link">${item}</a></li>`
@@ -337,7 +366,9 @@ for (let i = 0; i < servicesList.length; i++) {
     })
 }
 
-var navBottom = document.querySelectorAll('.bot-nav-item');
+// underline color for active on menu bottom
+const navBottom = document.querySelectorAll('.bot-nav-item');
+
 for (let i = 1; i < navBottom.length; i++) {
     navBottom[i].addEventListener('click', function() {
         Array.from(navBottom).forEach((current) => {
@@ -348,36 +379,42 @@ for (let i = 1; i < navBottom.length; i++) {
     })
 }
 
-var openLangList = document.querySelector('.mod-desc-lang');
+// open-close language list
+const openLangList = document.querySelector('.mod-desc-lang');
 openLangList.addEventListener('click', function() {
     openLangList.classList.toggle('mod-desc-lang--active');
 })
 
-var openFooterLangList = document.querySelector('.footer-lang-choose');
+// open-close language list footer
+const openFooterLangList = document.querySelector('.footer-lang-choose');
 openFooterLangList.addEventListener('click',() => {
     openFooterLangList.classList.toggle('footer-lang-choose--active')
 })
 
-var listCaterory = document.querySelectorAll('.mod-categories-item');
-
+// set color selected category
+const listCaterory = document.querySelectorAll('.mod-categories-item'); // list item category
 Array.from(listCaterory).forEach((current) => {
     current.addEventListener('click', function() {
         current.classList.toggle('mod-categories-item--active');
     })
 })
 
-var openInputTablet = document.querySelector('.open-input-tablet');
+
+// open search for tablet
+const openInputTablet = document.querySelector('.open-input-tablet');
 openInputTablet.addEventListener('click', () => {
     document.querySelector('.bot-input').classList.toggle('bot-input--active');
     openInputTablet.classList.add('open-input-tablet--active');
 })
 
-var closeInputTablet = document.querySelector('.close-input-table');
+// close search for table
+const closeInputTablet = document.querySelector('.close-input-table');
 closeInputTablet.addEventListener('click', () => {
     document.querySelector('.bot-input').classList.remove('bot-input--active');
     openInputTablet.classList.remove('open-input-tablet--active');
 })
 
+// scroll menu Categories 
 const menuDESC = document.querySelector('.mod-categories-container');
 let menuDESC_isDown = false; // ktra click chuột
 let menuDESC_startX; // Tọa độ của chuột - Tọa độ cạnh trái của menu
@@ -407,9 +444,10 @@ menuDESC.addEventListener('mousemove', (e) => {
 });
 
 
+// Scroll for game and service list
 const gameScroll = document.querySelector('.games-list-container');
-const gameArrowLeft = document.querySelector('.games-arrow-nav.to-left');
-const gameArrowRight = document.querySelector('.games-arrow-nav.to-right');
+const gameArrowLeft = document.querySelector('.games-arrow-nav.to-left'); // click to scroll -> left
+const gameArrowRight = document.querySelector('.games-arrow-nav.to-right'); // click to scroll -> right
 
 const serviceScoll = document.querySelector('.services-list-container');
 const serviceArrowLeft = document.querySelector('.services-arrow-nav.to-left');
@@ -440,17 +478,17 @@ gameScroll.addEventListener('mousemove', (e) => {
     const x = e.pageX - gameScroll.offsetLeft;  // Tọa độ của chuột - Tọa độ cạnh trái của menu thay đổi khi click chuột
     const walk = x - gameScroll_startX; // quãng đường di chuyển của chuột
     gameScroll.scrollLeft = gameScroll_scollLeft - walk; // cuộn menu theo khoảng cách chuột đã di chuyển
-    if (gameScroll.scrollLeft == 0) {
+    if (gameScroll.scrollLeft == 0) { // Nếu đang đang ở đầu danh sách ẩn nút kéo sang trái
         gameArrowRight.classList.add('games-arrow-nav--active');
         gameArrowLeft.classList.remove('games-arrow-nav--active');
     }
-    if (gameScroll.scrollLeft == gameScroll.scrollWidth - gameScroll.clientWidth) {
+    if (gameScroll.scrollLeft == gameScroll.scrollWidth - gameScroll.clientWidth) { // Nếu đang ở cuối danh sách ẩn nút kéo sang phải
         gameArrowLeft.classList.add('games-arrow-nav--active');
         gameArrowRight.classList.remove('games-arrow-nav--active');
     }
 });
 
-gameArrowLeft.addEventListener('click', () => {
+gameArrowLeft.addEventListener('click', () => { // CLick mũi tên kéo menu sang trái
     gameArrowRight.classList.add('games-arrow-nav--active');
     gameArrowLeft.classList.remove('games-arrow-nav--active');
     gameScroll.style.scrollBehavior = 'smooth';
@@ -458,7 +496,7 @@ gameArrowLeft.addEventListener('click', () => {
     gameScroll.style.scrollBehavior = 'auto';
 })
 
-gameArrowRight.addEventListener('click', () => {
+gameArrowRight.addEventListener('click', () => { // phải
     gameArrowLeft.classList.add('games-arrow-nav--active');
     gameArrowRight.classList.remove('games-arrow-nav--active');
     gameScroll.style.scrollBehavior = 'smooth';
@@ -521,9 +559,9 @@ serviceArrowRight.addEventListener('click', () => {
 
 // Position cho menu trái mobile
 
-const navMobile = document.querySelector('.nav-open-bar');
+const navMobile = document.querySelector('.nav-mobile');
 window.addEventListener('scroll', () => {
-    if (window.scrollY >= 36)
+    if (window.scrollY > 0)
         navMobile.style.top = 0;
     else
         navMobile.style.top = '36px'
@@ -532,41 +570,16 @@ window.addEventListener('scroll', () => {
 
 // Open item menu game mobile
 
-const menuGameMobile = document.querySelectorAll('.games-mobile-item');
+const menuGameMobile = document.querySelectorAll('.games-mobile-item:not(.services)');
 
-function disableOpenGameMobile() {
+function disableOpenGameMobile() { // đóng và reset màu
     Array.from(menuGameMobile).forEach((current) => {
-        current.classList.remove('games-mobile-item--active')
+        if (current.classList.contains('games-mobile-item--active')) {
+            current.classList.remove('games-mobile-item--active')
+            document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-name`).style.color = 'rgba(255, 255, 255, 0.6)';
+        }
     })
 }
-
-Array.from(menuGameMobile).forEach((current) => {
-    current.addEventListener('click', () => {
-        if (!current.classList.contains('games-mobile-item--active')) {
-            disableOpenGameMobile();
-            current.classList.add('games-mobile-item--active');
-            // console.log(generateGameMobileContent(current));
-            if (document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-content-container`) == null)
-                current.innerHTML += generateGameMobileContent(current);
-            gamesListData.forEach((item) => {
-                if (item.class == current.classList[1]) {
-                    let myClass = document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-item-container`);
-                    let afterStyle = window.getComputedStyle(myClass, '::before');
-                    afterStyle.setProperty('background-image', `url(${item.imgUrlBg})`);
-                }
-            })
-        }
-        else
-            current.classList.remove('games-mobile-item--active');
-    })
-})
-
-
-// Close menu mobile 
-const closeGameMobile = document.querySelector('.games-mobile-close-icon');
-closeGameMobile.addEventListener('click', () => {
-    document.querySelector('.games-menu-mobile').classList.remove('is--open');
-})
 
 function generateGameMobileContent(current) {
     let className = current.classList[1];
@@ -581,7 +594,7 @@ function generateGameMobileContent(current) {
             </div>
             <div class="games-mobile-main-content">
                 <div class="games-mobile-desc">
-                    <h3 class="games-mobile-content-heading">${item.name}</h3>
+                    <h3 class="games-mobile-content-heading" style="color: ${item.color}">${item.name}</h3>
                     <p class="games-mobile-content-desc">${item.desc}</p>
                     <ul class="games-mobile-desc-platform">
                         ${generateListPlaformMobile(item)}
@@ -589,7 +602,7 @@ function generateGameMobileContent(current) {
                 </div>
                 <div class="games-mobile-link">
                     <ul class="games-mobile-link-list">
-                        <h3 class="games-mobile-content-heading">LINK</h3>
+                        <h3 class="games-mobile-content-heading" style="color: ${item.color}">LINK</h3>
                         ${generateListLinkMobile(item)}
                     </ul>
                 </div>
@@ -623,3 +636,110 @@ function generateListLinkMobile(item) {
     })
     return result;
 }
+
+Array.from(menuGameMobile).forEach((current) => {
+    current.addEventListener('click', () => {
+        if (!current.classList.contains('games-mobile-item--active')) { // Nếu nó chưa được mở
+            disableOpenGameMobile(); // Đóng tất cả
+            current.classList.add('games-mobile-item--active'); // Mở nó
+            if (document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-content-container`) == null) // Nếu chưa có nội dung, tạo nội dung
+                current.innerHTML += generateGameMobileContent(current);
+            gamesListData.forEach((item) => { // Thêm background và màu chữ
+                if (item.class == current.classList[1]) {
+                    let myClass = document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-item-bg`);
+                    myClass.style.backgroundImage = `url(${item.imgUrlBg})`;
+                    document.querySelector(`.${current.classList[0]}.${current.classList[1]} .games-mobile-name`).style.color = `${item.color}`
+                }
+            })
+        }
+        else { // nó mở rồi thì đóng lại
+            disableOpenGameMobile();
+        }
+    })
+})
+
+
+// Close menu mobile + services
+const closeGameMobile = document.querySelectorAll('.games-mobile-close-icon');
+Array.from(closeGameMobile).forEach((currnet) => {
+    currnet.addEventListener('click', () => {
+        document.querySelector('.games-menu-mobile').classList.remove('is--open');
+        document.querySelector('.services.games-menu-mobile').classList.remove('is--open');
+        menuServiceCheck.classList.remove('menu--active');
+        menuGameCheck.classList.remove('menu--active');
+    })
+})
+
+const menuServiceMobile = document.querySelectorAll('.services.games-mobile-item');
+
+function disableOpenServiceMobile() {
+    Array.from(menuServiceMobile).forEach((current) => {
+        current.classList.remove('games-mobile-item--active');
+    })
+}
+
+function generateServiceMobileContent(current) {
+    let className = current.classList[2];
+    let result = ``;
+    servicesListData.forEach((item) => {
+        if (className == item.class) {
+            result = `         <div class="games-mobile-content-container">
+            <div class="games-mobile-bg">
+                <a href="#" class="games-mobile-home-link">
+                    <img src="${item.UrlIcon}" alt="" class="games-mobile-icon">
+                </a>
+            </div>
+            <div class="games-mobile-main-content">
+                <div class="games-mobile-desc">
+                    <h3 class="games-mobile-content-heading" style="color: var(--services-hover)">${item.name}</h3>
+                    <p class="games-mobile-content-desc">${item.desc}</p>
+                </div>
+                <div class="games-mobile-link">
+                    <ul class="games-mobile-link-list">
+                        <h3 class="games-mobile-content-heading" style="color: var(--services-hover)">LINK</h3>
+                        ${generateServiceMobileLink(item)}
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+        }
+    })
+    return result;
+}
+
+function generateServiceMobileLink(item) {
+    let result = ``;
+    item.link.forEach((aa) => {
+        result += `<li class="games-mobile-link-item">
+        <a href="#" class="games-mobile-link-link">
+            ${aa}
+        </a>
+    </li>`
+    })
+    return result;
+}
+
+Array.from(menuServiceMobile).forEach((current) => {
+    current.addEventListener('click', () => {
+        if (!current.classList.contains('games-mobile-item--active')) {
+            disableOpenServiceMobile();
+            current.classList.add('games-mobile-item--active');
+            if (document.querySelector(`.${current.classList[1]}.${current.classList[2]} .games-mobile-content-container`) == null)
+                current.innerHTML += generateServiceMobileContent(current);
+            servicesListData.forEach((item) => {
+                if (item.class == current.classList[2])
+                    document.querySelector(`.${current.classList[1]}.${current.classList[2]} .games-mobile-item-bg`).style.backgroundImage = `url(${item.UrlBg})`;
+            })
+            
+        } else {
+            disableOpenServiceMobile();
+        }
+    })
+})
+
+var openNavMobile = document.querySelector('.nav-open-bar');
+
+openNavMobile.addEventListener('click', () => {
+    document.querySelector('.nav-mobile').classList.toggle('nav-mobile--active');
+    openNavMobile.classList.toggle('nav-open-bar--active');
+})

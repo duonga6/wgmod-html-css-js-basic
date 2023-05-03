@@ -1284,3 +1284,7 @@
 .games-menu-mobile {
     display: none;
 }
+
+.nav-mobile {
+    display: none;
+}

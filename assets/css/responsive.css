@@ -80,66 +80,7 @@
 
     /* footer */
 
-    .footer {
-        height: 200px;
-    }
-
-    .footer-container {
-        justify-content: unset;
-    }
-
-    .footer-nav-list {
-        padding-top: 24px;
-        align-items:flex-start;
-        flex-direction: column;
-        height: 200px;
-    }
-
-    .footer-nav-item {
-        margin-right: 0;
-    }
-
-    .footer-nav-item:first-child {
-        margin-bottom: 16px;
-    }
-
-    .footer-lang {
-        padding-top: 24px;
-        flex-direction: column;
-        font-size: 1.4rem;
-        line-height: 2.9rem;
-        font-weight: bold;
-        margin-left: 32px;
-    }
-
-    .footer-lang-choose {
-        margin-top: 16px;
-    }
-
-    .footer-lang-choose--active .footer-lang-current{
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    .footer-lang-list {
-        top: 100%;
-        bottom: unset;
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-
-    .footer-lang-arrow {
-        transform: rotate(180deg);
-    }
-
-    .footer-lang-choose--active .footer-lang-arrow {
-        transform: rotate(0);
-    }
-
+    
     /* Game list*/
     .games-list-container-with-arrow {
         width: 660px;
@@ -266,7 +207,7 @@
         z-index: 10;
         top: 36px;
         width: 100%;
-        transform: translateY(-500px);
+        transform: translateY(-520px);
         opacity: 0;
         transition: transform .2s linear, opacity .2s linear;
     }
@@ -330,36 +271,30 @@
         position: relative;
     }
 
-    .games-mobile-item.games-mobile-item--active .games-mobile-item-container::before {
+    .games-mobile-item.games-mobile-item--active .games-mobile-item-bg {
         display: block;
     }
 
-    .games-mobile-item-container::before{
+    .games-mobile-item-bg {
         display: none;
-        content: "";
         position: absolute;
         top: 0;
-        height: 300px;
         width: 100%;
+        height: 300px;
         margin-left: -12px;
         background-image: url(../img/game-background/wot.jpg);
         background-repeat: no-repeat;
         background-size: auto 300px;
         background-position: center left -400px;
     }
- 
-    .games-mobile-item.games-mobile-item--active .games-mobile-item-container::after {
-        display: block
-    }
 
-    .games-mobile-item-container::after{
-        display: none;
+    .games-mobile-item-bg::before {
+        display: block;
         content: "";
         position: absolute;
         top: 0;
         height: 300px;
         width: 100%;
-        margin-left: -12px;
         background-image: linear-gradient(transparent, transparent, transparent, #000);
         background-repeat: no-repeat;
     }
@@ -480,7 +415,7 @@
     }
 
     .games-mobile-close-btn {
-        height: 24px;
+        height: 32px;
         width: 100%;
         background-color: #171717;
         display: flex;
@@ -491,56 +426,220 @@
     .games-mobile-close-icon {
         font-size: 1.2rem;
         color: rgba(255, 255, 255, 0.6);
-        padding: 4px 8px;
+        padding: 8px 16px;
         transform: rotate(180deg);
+    }
+
+    .services.games-mobile-item--active .services.games-mobile-name {
+        color: var(--services-hover);
     }
 
     /* Content */
 
     .content {
-        padding: 0 20px;
-    }
-
-    /* Footer */
-
-    .footer {
-        height: 200px;
-    }
-
-    .footer-container {
-    }
-
-    .footer-nav-list {
-        flex-direction: column;
-    }
-
-    .footer-lang {
-        flex-direction: column;
+        padding: 0 20px 50px;
     }
 
     /* Menu nav mobile */
 
     .nav-mobile {
-        display: none;
+        z-index: 1;
+        position: fixed;
+        top: 36px;
+        transition: top .1s linear;
+        display: block;
+        width: 400px;
+        background-color: rgba(39, 39, 41, 0.98);
+        transform: translateX(-400px);
+        transition: all .2s linear;
+        border-radius: 4px;
+    }
+
+    .nav-mobile.nav-mobile--active {
+        transform: translateX(0);
     }
 
     .nav-open-bar {
-        position: fixed;
-        top: 36px;
         /* background-color: rgba(39, 39, 41, 0.95); */
         background-color: var(--header__top-color);
-        width: 48px;
-        height: 48px;
+        width: 38px;
+        height: 38px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid rgba(60, 60, 63, 0.4);
-        border-radius: 4px;
-        transition: top .1s linear;
+        border: 1px solid rgba(60, 60, 63, 0.6);
+        border-radius: 50%;
+        position: absolute;
+        right: -38px;
+        top: 0;
     }
 
     .nav-open-icon {
-        font-size: 2.2rem;
-        color: var(--white-color);
+        font-size: 2rem;
+        color: #F9B723;
+        transition: transform .2s linear;
     }
+
+    .nav-open-bar--active .nav-open-icon {
+        transform: rotate(180deg);
+    }
+
+    .nav-mobile-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bot-nav-list {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .bot-nav-item {
+        margin: 0;
+    }
+
+    .bot-nav-item:first-child {
+        display: none
+    }
+
+    .bot-nav-link {
+        height: 48px;
+    }
+
+    .search-mobile-container {
+        padding: 16px;
+        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    .search-mobile-head {
+        font-size: 1.8rem;
+        color: var(--white-color);
+        font-weight: normal;
+        
+    }
+
+    .search-mobile-input {
+        padding: 0 16px;
+        height: 36px;
+        border: none;
+        outline: none;
+        flex: 1;
+        border-radius: 18px;
+        background-color: rgba(5, 5, 5, 0.4);
+        color: var(--white-color);
+        font-size: 1.2rem;
+    }
+
+    .search-mobile-input::placeholder {
+        color: var(--white-color);
+        font-size: 1.2rem;
+        font-weight: lighter;
+    }
+
+    .search-mobile-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        width: 42px;
+        height: 32px;
+        background-color: #F9B723;
+        margin-left: 12px;
+        border-radius: 8px;
+    }
+
+    .search-mobile-btn:hover {
+        background-color: #f8c964;
+        cursor: pointer;
+    }
+
+    .mobile-log {
+        padding:  0 20px;
+        margin: 16px 0 12px 0;
+        list-style: none;
+        display: flex;
+    }
+    .mobile-log-item {
+
+    }
+
+    .mobile-log-link {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.4rem;
+    }
+
+    .or-or {
+        color: var(--white-color);
+        margin: 0 8px;
+        font-size: 1.4rem;
+    }
+
+}
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        height: 200px;
+    }
+
+    .footer-container {
+        justify-content: unset;
+    }
+
+    .footer-nav-list {
+        padding-top: 24px;
+        align-items:flex-start;
+        flex-direction: column;
+        height: 200px;
+    }
+
+    .footer-nav-item {
+        margin-right: 0;
+    }
+
+    .footer-nav-item:first-child {
+        margin-bottom: 16px;
+    }
+
+    .footer-lang {
+        padding-top: 24px;
+        flex-direction: column;
+        font-size: 1.4rem;
+        line-height: 2.9rem;
+        font-weight: bold;
+        margin-left: 32px;
+    }
+
+    .footer-lang-choose {
+        margin-top: 16px;
+    }
+
+    .footer-lang-choose--active .footer-lang-current{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .footer-lang-list {
+        top: 100%;
+        bottom: unset;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .footer-lang-arrow {
+        transform: rotate(180deg);
+    }
+
+    .footer-lang-choose--active .footer-lang-arrow {
+        transform: rotate(0);
+    }
+
 }
